@@ -1,0 +1,952 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="mohai">
+  <meta name="keywords" content="">
+  
+  <title>社会网络分析 - 漠海的自语地</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mohai1355.github.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>漠海的自语地</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="社会网络分析">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      mohai
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-01 22:42" pubdate>
+        2021年4月1日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      73
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">社会网络分析</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年4月1日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="第一讲"><a href="#第一讲" class="headerlink" title="第一讲"></a>第一讲</h1><p>网络的基本要素：节点vertex/node；连接tie</p>
+<p>网络测度：矩阵matrix；边列表edge list</p>
+<h1 id="第二讲-网络数据搜集"><a href="#第二讲-网络数据搜集" class="headerlink" title="第二讲 网络数据搜集"></a>第二讲 网络数据搜集</h1><p>搜集网络数据的步骤：社会网络类别、人口总体、网络边界、信息收集、网络结构推断</p>
+<h2 id="社会网络的类型：一模和二模网络"><a href="#社会网络的类型：一模和二模网络" class="headerlink" title="社会网络的类型：一模和二模网络"></a>社会网络的类型：一模和二模网络</h2><p>一模网络（one-mode network）：只包含一种类别的节点，如书籍购买网络中的书籍<br>二模网络（two-mode network）：从属网络或二分网络；包含两种类别的节点：如重构书籍网络中的用户和书籍两类节点</p>
+<p>本质上一模网络是二模网络的整合（aggregation）</p>
+<p>如果追求精确的信息，可以从二模网络入手，从个体层面更详细的信息来看。</p>
+<h2 id="网络边界"><a href="#网络边界" class="headerlink" title="网络边界"></a>网络边界</h2><p>小世界理论：在任何两位素不相识的人之间，通过一定的联系方式，总能够产生必然联系或关系。</p>
+<p>从小世界理论到网络数据搜集<br>困难在于，在搜集网络数据时，<strong>缺乏网络边界会让不同受访者回答的网络数据不具有可比性</strong>。<br>所以网络数据搜集需要<strong>明确网络边界</strong></p>
+<ul>
+<li>研究的人口总体：节点</li>
+<li>研究的网络：连接</li>
+</ul>
+<h3 id="人口总体（population）"><a href="#人口总体（population）" class="headerlink" title="人口总体（population）"></a>人口总体（population）</h3><p>回顾定义：研究所感兴趣的所有个体的集合。<br>基于<strong>事实</strong>的界定：行动者感知的网络边界，例如同学、同事等</p>
+<ul>
+<li>是一种方法，但并不是一种概率均等的方式。其关键在于感知，是一个主观的判断，而不是客观的层面。例如：研究犯罪团体的网络结构。<br>基于<strong>理论</strong>的界定：基于研究者兴趣的定义，例如一所学校的学生、公司的员工等</li>
+<li>从一般角度来讲，更关心理论层面。例如：美国的addhealth</li>
+</ul>
+<h3 id="抽样（Sampling）"><a href="#抽样（Sampling）" class="headerlink" title="抽样（Sampling）"></a>抽样（Sampling）</h3><p>对现实网络边界内所有个体进行调查往往并不可行。——所以需要抽样——对于总体人口按照概率或结构抽取部分的样本。</p>
+<p>例子：15个人的朋友网络</p>
+<ul>
+<li>自我中心抽样</li>
+<li>滚雪球抽样，但会存在遗漏个体/子集（例如：少数群体）</li>
+</ul>
+<h4 id="如何解决遗漏问题？"><a href="#如何解决遗漏问题？" class="headerlink" title="如何解决遗漏问题？"></a>如何解决遗漏问题？</h4><p>希望得到完整的网络结构：</p>
+<ul>
+<li>以定义网络边界的组织或群体作为抽样单位</li>
+<li>对群体内所有成员进行调查</li>
+</ul>
+<p>希望推断某一个网络特征，如社会个体平均朋友的数量：</p>
+<ul>
+<li>借助统计推断（statistical inference）得出无偏估计(unbiased estimator)</li>
+<li>受访者驱动抽样(respondent driven method)；网络迭代法(network scale-up method)</li>
+</ul>
+<h3 id="网络边界并不容易界定"><a href="#网络边界并不容易界定" class="headerlink" title="网络边界并不容易界定"></a>网络边界并不容易界定</h3><p>对于<strong>外生形成</strong>的群体，网络边界往往是清晰的，例如学生、员工。<br>对于<strong>自然形成</strong>的群体，网络边界难以明晰，例如自然村落、隐藏人口群体（如social stigma）。</p>
+<p>（网络边界不明晰的话，需要研究者通过努力）列出所有边界内的成员名单（roster）。</p>
+<h2 id="数据搜集方法"><a href="#数据搜集方法" class="headerlink" title="数据搜集方法"></a>数据搜集方法</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一：Addhealth网络数据搜集"><a href="#案例一：Addhealth网络数据搜集" class="headerlink" title="案例一：Addhealth网络数据搜集"></a>案例一：Addhealth网络数据搜集</h4><p>人口总体和网络边界的界定</p>
+<ol>
+<li>以学校为单位，在Quality Education Database(QED)分层抽样，按照学校规模、区域、种族构成等抽取80所中学.</li>
+<li>获取所有学校的学生名单（roster）</li>
+<li>从80所高中选择16所，对在校所有学生的朋友网络和互动网络进行调查。<strong>网络边界是学生所在的每一所学校的内部</strong>，这样不同学校之间就具有可比较性了。</li>
+</ol>
+<p>调查问题：按顺序列出5个最好的朋友。<br>通过和所有学生名单匹配得到在校朋友网络。<br>关键点：学生作为抽样单位；网络边界……</p>
+<h4 id="案例二：Microfinance网络数据搜集"><a href="#案例二：Microfinance网络数据搜集" class="headerlink" title="案例二：Microfinance网络数据搜集"></a>案例二：Microfinance网络数据搜集</h4><p>“社会网络和小额信贷”项目由MIT和Stanford的经济学家设计执行，在印度加尔各答南部75个村庄搜集相关数据。</p>
+<p>调查问题：</p>
+<ol>
+<li>列出村庄中与你一起工作的人。</li>
+<li>如果突然需要借50块钱，你会找谁？（从村庄里选择）</li>
+</ol>
+<h3 id="网络结构数据的构成"><a href="#网络结构数据的构成" class="headerlink" title="网络结构数据的构成"></a>网络结构数据的构成</h3><p><strong>网络数据</strong></p>
+<ul>
+<li>节点：如一个班级的学生</li>
+<li>连接：如班级内的朋友关系</li>
+<li>权重：如对朋友的排序</li>
+</ul>
+<p><strong>特征数据</strong></p>
+<ul>
+<li>节点的特征：如学生的性别、年龄、年级等</li>
+</ul>
+<h3 id="网络结构搜集的两个要素"><a href="#网络结构搜集的两个要素" class="headerlink" title="网络结构搜集的两个要素"></a>网络结构搜集的两个要素</h3><p><strong>名册</strong>（roster）：全部个体的名单<br><strong>提名</strong>（name generator）：朋友网络、交谈网络、帮助网络等<br>要能相互对应。</p>
+<h3 id="网络结构数据搜集的几种方式"><a href="#网络结构数据搜集的几种方式" class="headerlink" title="网络结构数据搜集的几种方式"></a>网络结构数据搜集的几种方式</h3><ol>
+<li>名册勾选法：给出所有人名，让受访者勾选<ul>
+<li>优势：更准确；网络边界明晰</li>
+<li>劣势：在群体或组织达到一定规模时，名单会非常长</li>
+</ul>
+</li>
+<li>提名法：受访者主动填写名字<ul>
+<li>优势：不需要知道所有人名单；适用于大规模组织或群体中</li>
+<li>劣势：容易漏报；网络边界不明晰</li>
+</ul>
+</li>
+<li>认知社会结构（cognitive social structure）：询问每个受访者其所在群体所有成员的连接。例如，“xx在班级里的朋友有谁？”<ul>
+<li>优势：获得更复杂的感知网络数据；能够得到更准确的网络估计</li>
+<li>劣势：难以标准化进行分析；认知偏误较大</li>
+</ul>
+</li>
+</ol>
+<h3 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h3><ol>
+<li>准确度（accuracy）：受访者准确回忆调查社会互动、社会关系等信息。比较难以解决，主要取决于受访者。</li>
+<li>有效性（validity）：网络调查的问题能够有效测量研究者计划测量的信息</li>
+<li>可靠性（reliability）：重复测量网络信息能够保持一致。有效性和可靠性可以通过问卷设计来调整。</li>
+<li>测量偏误（measurement error）：“真实”的网络测量是由调查测量值和随机偏误构成的。如每个人的朋友数量并不等于5，如果调查中要求受访者列出5个朋友，会造成估计偏误（导致低估网络信息的复杂程度）。奇异值、负二项分布、泊松分布等情况。通过统计推断的方式可以降低偏误的影响。</li>
+</ol>
+<h2 id="调查数据：线下vs-线上"><a href="#调查数据：线下vs-线上" class="headerlink" title="调查数据：线下vs.线上"></a>调查数据：线下vs.线上</h2><p>成本问题<br>调查周期问题<br>调查质量问题</p>
+<h2 id="明确所需的网络信息"><a href="#明确所需的网络信息" class="headerlink" title="明确所需的网络信息"></a>明确所需的网络信息</h2><p>研究的目的：理解完整网络结构or测量网络特征or动态网络</p>
+<p>网络结构推断</p>
+<h2 id="网络特征数据搜集的其他方式"><a href="#网络特征数据搜集的其他方式" class="headerlink" title="网络特征数据搜集的其他方式"></a>网络特征数据搜集的其他方式</h2><p>总计关系数据（aggregate relational data）：通过自我中心的网络规模数据得到总计关系数据。</p>
+<ul>
+<li>Q：你认识多少人？<h3 id="案例：GSS（综合社会调查）网络数据搜集"><a href="#案例：GSS（综合社会调查）网络数据搜集" class="headerlink" title="案例：GSS（综合社会调查）网络数据搜集"></a>案例：GSS（综合社会调查）网络数据搜集</h3>抽样设计</li>
+<li>人口总体：18岁以上美国居民</li>
+<li>分层、多阶段随机抽样</li>
+<li>全国代表样本</li>
+<li>1500样本</li>
+</ul>
+<p>调查问题：你认识多少警察？你认识多少叫Kevin？</p>
+<ul>
+<li>社会资本理论，关键在一个人在社会中的位置，位置越好，所占有的社会资本也就越多。——其中关键就在于你认识多少人。</li>
+<li>统计推断：n/N=nd/Nd，通过问许多类似上面的问题（姓名、职业等），进行加权，最终可以得到一个无偏的估计。</li>
+</ul>
+<h3 id="完整网络数据的推断"><a href="#完整网络数据的推断" class="headerlink" title="完整网络数据的推断"></a>完整网络数据的推断</h3><p>清理网络结构数据描述完整结构，网络可视化的重要性。</p>
+<p>网络迭代法</p>
+<p>例子：使用网络规模调查估算死亡人口</p>
+<ul>
+<li>其相对于调查社区死亡率进行推算的优势在于，成本更低。对样本量的要求？</li>
+<li>研究的假设：死亡人口和存活人口网络规模一致；不存在死亡人口报告偏误</li>
+</ul>
+<h1 id="第三讲"><a href="#第三讲" class="headerlink" title="第三讲"></a>第三讲</h1><h2 id="图论和网络的表示"><a href="#图论和网络的表示" class="headerlink" title="图论和网络的表示"></a>图论和网络的表示</h2><p>如何描述数据？</p>
+<ul>
+<li>图论和网络的表示</li>
+<li>图论和矩阵表示法的转化</li>
+<li>网络的基本统计</li>
+</ul>
+<p>为什么学习图论？——一套描述社会网络结构特征的语法体系。对网络特征进行量化和测量。</p>
+<h3 id="完整被观测的二元网络"><a href="#完整被观测的二元网络" class="headerlink" title="完整被观测的二元网络"></a>完整被观测的二元网络</h3><p>二元：关系数据由单一的二元结构构成，一般表示一种关系存在与否；<br>完整被观测：每对个体（dyad）的关系信息没有缺失</p>
+<p>在这种情形下，网络数据可被表示为图（graph）和二元矩阵（binary sociomatrix）。</p>
+<h3 id="节点和边"><a href="#节点和边" class="headerlink" title="节点和边"></a>节点和边</h3><p>形式上，一个图包括：</p>
+<ul>
+<li>一组节点：$\mathcal{N} =\lbrace 1, …,n \rbrace$;</li>
+<li>一组节点之间的连接或边（edge）：$\mathcal{E} = \lbrace e<em>{1}, …, e</em>{n} \rbrace$</li>
+</ul>
+<p>这个图记为：$\mathcal{G} = \lbrace \mathcal{N}, \mathcal{E}\rbrace$</p>
+<ul>
+<li>其中，边$e \in \mathcal{E}$表示为每一对节点之间的边或连接</li>
+</ul>
+<h3 id="有向图和无向图"><a href="#有向图和无向图" class="headerlink" title="有向图和无向图"></a>有向图和无向图</h3><p>两种情形：</p>
+<ul>
+<li>无向图（undirected graph）：边{i,j}和{j,i}没有区别，每个边是一组没有排序的节点：$\lbrace i,j \rbrace = \lbrace j,i \rbrace$</li>
+<li>有向图（directed graph）：边具有方向，因此边（i,j）和边（j,i）不是相同的含义：$(i,j) \neq (j,i)$</li>
+</ul>
+<p>例子1：无向图</p>
+<p>例子2：有向图</p>
+<h3 id="一些基本的图概念"><a href="#一些基本的图概念" class="headerlink" title="一些基本的图概念"></a>一些基本的图概念</h3><p>对于一个无向图$\mathcal{G} =\lbrace \mathcal{N}, \mathcal{E} \rbrace$</p>
+<ul>
+<li>邻接（adjacent）：节点$i$和$j$是邻接的，如果$\lbrace i,j \rbrace \in \mathcal{E}$</li>
+<li>空图（empty graph）：如果$\mathcal{E} = \emptyset$，即没有连接，那么这个图是空图</li>
+<li>完全图（complete graph）：如果$\mathcal{E} =\lbrace \lbrace i, j \rbrace : i \in \mathcal{N}, j \in \mathcal{N}, i \neq j \rbrace$，记为完全图，即存在所有可能的连接或边。</li>
+</ul>
+<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><p>定义：$\mathcal{G}<em>{S}= \lbrace \mathcal{N}</em>{S}, \mathcal{E}_{S} \rbrace$为$\mathcal{G} = \lbrace \mathcal{N}, \mathcal{E}\rbrace$的一个子图，当</p>
+<ul>
+<li>$\mathcal{N}_{S} \subset \mathcal{N}$</li>
+<li>$\mathcal{E}<em>{S} \subset \mathcal{E}$，并且$\mathcal{E}</em>{S}$内所有的边都是$\mathcal{N}_{S}$中节点之间的连接</li>
+</ul>
+<p>子图的生成可以基于节点或边。</p>
+<h4 id="节点生成的子图"><a href="#节点生成的子图" class="headerlink" title="节点生成的子图"></a>节点生成的子图</h4><p>数学上可以表示为：$\mathcal{E}<em>{S}= \mathcal{E} \cap \lbrace \lbrace i, j \rbrace : i \in \mathcal{N}</em>{S}, j \in \mathcal{N}_{S} \rbrace$</p>
+<p>节点生成的子图具有实际的意义</p>
+<ul>
+<li>通常是研究所感兴趣的内容，如不同性别的朋友网络</li>
+<li><strong>如果某些节点存在缺失信息，那么需要删去缺失信息的节点</strong>，只关注没有缺失信息的节点所构成的网络</li>
+<li>可以识别节点中存在的紧密子群体（cohesive subgroup），即具有高密度子图的节点集合</li>
+</ul>
+<h4 id="其他节点生成的子图"><a href="#其他节点生成的子图" class="headerlink" title="其他节点生成的子图"></a>其他节点生成的子图</h4><p>二元图（dyad）：由单一一对节点$i,j \in \mathcal{N}$构成的子图。在无向图中存在2种可能；在有向图中存在4种可能。<br>三元图：在无向图中可能存在8种情形（$2^3 =8$）。在8种形态中</p>
+<ul>
+<li>其中三种只有1边的三元图是等价的，或同形态的</li>
+<li>三种有2边的三元图是同形态的。</li>
+</ul>
+<p><strong>同形态（isomorphic）</strong>：两个图$\mathcal{G}$和$\mathcal{G}^\prime$是同形态的，如果后者可以通过前者中节点名称的重新排列获得。</p>
+<h4 id="边生成的子图"><a href="#边生成的子图" class="headerlink" title="边生成的子图"></a>边生成的子图</h4><p>用于特定类型的网络，例如事件网络数据：</p>
+<ul>
+<li>国际争端网络：争端记录为发起国和目标国之间的关系</li>
+<li>借贷网络：借贷记录为接触人和借款人之间的关系</li>
+</ul>
+<h3 id="边列表"><a href="#边列表" class="headerlink" title="边列表"></a>边列表</h3><p>在网络数据存储时，图可以保存在边列表（edge list）。<br>其局限在于，不会将不存在关系（边）的（孤立）节点记录。</p>
+<ul>
+<li>孤立节点（isolate）：和图中其他任何节点不存在连接的节点</li>
+</ul>
+<p>在孤立节点存在的情形下，图可以表示为边列表和孤立节点列表的集合。</p>
+<h3 id="加权的边"><a href="#加权的边" class="headerlink" title="加权的边"></a>加权的边</h3><p>很多情况下，关系变量并非仅仅是二元数字（0，1），而是实数。例如沟通网络和冲突合作网络。在这种情况下，可以使用<strong>加权边列表</strong>。</p>
+<h4 id="加权边列表"><a href="#加权边列表" class="headerlink" title="加权边列表"></a>加权边列表</h4><p>例子：</p>
+<script type="math/tex; mode=display">
+\quad行\quad列\quad权重\\
+\mathcal{E}=
+\begin{pmatrix}
+1 & 2 & 8\\
+1 & 5 & 2\\
+2 & 3 & 1\\
+3 & 1 &7\\
+3&5&4\\
+4&5& 1\\
+5&3&13\\
+\end{pmatrix}</script><p>这是一个$m \times 3$矩阵，其中m是存在非0关系的数量，前两列为节点ID，最后一列为关系取值。 </p>
+<h2 id="图表示和矩阵表示的转换"><a href="#图表示和矩阵表示的转换" class="headerlink" title="图表示和矩阵表示的转换"></a>图表示和矩阵表示的转换</h2><h3 id="矩阵表示法"><a href="#矩阵表示法" class="headerlink" title="矩阵表示法"></a>矩阵表示法</h3><p>关系数据的矩阵表示：</p>
+<ul>
+<li>$\mathcal{N}= \lbrace 1, …, n \rbrace$</li>
+<li>$y_{i,j}$表示节点i和j所有可能的关系（有向或无向）</li>
+<li>Y可以表示一个$n \times n$的矩阵，其中$\lbrace y_{i,j}: i=1,…,n; j = 1,…,n\rbrace$</li>
+<li>Y的对角线定义为$na$</li>
+</ul>
+<h4 id="邻接矩阵（adjacency-matrices）"><a href="#邻接矩阵（adjacency-matrices）" class="headerlink" title="邻接矩阵（adjacency matrices）"></a>邻接矩阵（adjacency matrices）</h4><p>根据图表示法，可以将节点和彼此的连接表示为$\mathcal{G} =\lbrace \mathcal{N}, \mathcal{E}\rbrace$<br>同样，我们可以将数据表示为$n \times n$的矩阵：对于$\lbrace y_{i,j}:i,j \in \mathcal{N}, i \ne j \rbrace$</p>
+<script type="math/tex; mode=display">
+y_{i,j} = \begin{cases} 
+1, &\text{if} (i,j)\in \mathcal{E} \\ 
+0, &\text{if} (i.j)\notin \mathcal{E}
+\end{cases}</script><p>这一矩阵称为图$\mathcal{G} =\lbrace \mathcal{N},\mathcal{E} \rbrace$的邻接矩阵。</p>
+<ul>
+<li>任何图的邻接矩阵都是方形，二元矩阵，并且对角线未被限定</li>
+<li>任何方形，二元以及对角线未被限定的矩阵对应于一个图</li>
+</ul>
+<h3 id="图与矩阵的转换"><a href="#图与矩阵的转换" class="headerlink" title="图与矩阵的转换"></a>图与矩阵的转换</h3><p>对于无向二元关系，$y<em>{i,j}=y</em>{j,i}$</p>
+<p>对于有向二元关系，有可能$y<em>{i,j}\neq y</em>{j,i}$</p>
+<ul>
+<li>当为空集，或双向时，相等。</li>
+</ul>
+<h3 id="社会矩阵（sociomatrices）"><a href="#社会矩阵（sociomatrices）" class="headerlink" title="社会矩阵（sociomatrices）"></a>社会矩阵（sociomatrices）</h3><p>任何节点集基础上的关系测量都可以表示为社会矩阵，社会矩阵也可以用图来表示。</p>
+<ul>
+<li>社会矩阵：一个对角线未被限定的方矩阵。（邻接矩阵是社会矩阵的一个特殊形式）</li>
+</ul>
+<p>例如：</p>
+<script type="math/tex; mode=display">
+Y_{1}=
+\begin{pmatrix}
+na & 2.1 & na & 0.0 & 1 \\
+0.0 & na & 4.1 & 0.0 & na \\
+2.1 & 2.9 & na & 0.0 & 1.2 \\
+0.0 & 0.0 & na & na & 5.4 \\
+na & 2.1 & 4.1 & 0.0 & na \\
+\end{pmatrix}</script><p>社会矩阵的特点在于</p>
+<ul>
+<li>关系的测量数值并非是二分的，可以是任意数值。</li>
+<li>关系的测量对于所有的节点对而言并不完备（没有测量的关系值≠没有关系）</li>
+</ul>
+<p>社会矩阵的优势在于</p>
+<ul>
+<li>能够表示具有取值（非二元）的关系</li>
+<li>能够表示缺失数据</li>
+</ul>
+<p>社会矩阵可以转换为图表示，但是存在一些问题</p>
+<ul>
+<li>压缩了数据</li>
+<li>对缺失值进行了错误的处理（例如将na处理为0）</li>
+</ul>
+<p>矩阵先天的劣势在于</p>
+<ul>
+<li>矩阵大小随着n（节点数量）的增加指数增长</li>
+<li>在节点间连接紧密的情况下，还好；但是在表示稀疏网络时非常没有效率。</li>
+<li>对于稀疏网络，<strong>边列表</strong>更加有效率。</li>
+</ul>
+<p>例如：对于同样的网络<br>矩阵:</p>
+<script type="math/tex; mode=display">
+Y =
+\begin{pmatrix}
+na & 1 & 0 & 0 & 1\\
+0 & na & 1 & 0 & 0\\
+1 & 0 & na & 0 & 1\\
+0 & 0 & 0 & na & 1\\
+0 & 0 & 1 & 0 & na\\
+\end{pmatrix}</script><p>而边列表（更加简洁）：$\mathcal{E} = \lbrace (1,2),(1,5),(2,3),(3,1),(3,5),(4,5),(5,3) \rbrace$</p>
+<h2 id="网络数据的描述统计"><a href="#网络数据的描述统计" class="headerlink" title="网络数据的描述统计"></a>网络数据的描述统计</h2><p>统计值：统计值t(Y)是数据的一个方程</p>
+<p>描述数据分析：数据主要特征的一系列统计值$t<em>{1}(Y),…,t</em>{k}(Y)$的集合</p>
+<h3 id="社会矩阵和均值"><a href="#社会矩阵和均值" class="headerlink" title="社会矩阵和均值"></a>社会矩阵和均值</h3><p>关系数据最基本的统计值是均值（mean），关系测量数值的和除以关系测量的数量。</p>
+<p>对于一个有n个节点完全被观测的图：</p>
+<script type="math/tex; mode=display">
+有向图：\overline y = \frac{\sum_{i\neq j}y_{i,j}}{n(n-1)}</script><script type="math/tex; mode=display">
+无向图：\overline {y} = \frac{\sum_{i> j}y_{i,j}}{n(n-1)/2}</script><p>对于无向关系：关系的均值=社会矩阵上（下）半三角的均值=社会矩阵的均值<br>对于有向或无向关系：均值为社会矩阵无缺失数值的均值</p>
+<h4 id="通过边列表计算均值"><a href="#通过边列表计算均值" class="headerlink" title="通过边列表计算均值"></a>通过边列表计算均值</h4><p>需要注意关系是有向或者无向的；同时也需要借助节点列表的信息。</p>
+<h3 id="网络密度"><a href="#网络密度" class="headerlink" title="网络密度"></a>网络密度</h3><p>密度：一个图种边存在的比例。（边的数量/最大可能的边数量）<br>观测到的边数量记为$|\mathcal{E}|$，可能的边数量为$n(n-1)$</p>
+<p>密度的计算公式：<br>有向图：$\frac{|\mathcal{E}|}{n(n-1)}$<br>无向图：$\frac{|\mathcal{E}|}{n(n-1)/2}$</p>
+<h4 id="密度作为一种均值"><a href="#密度作为一种均值" class="headerlink" title="密度作为一种均值"></a>密度作为一种均值</h4><p>当二元数值时，密度和社会矩阵的均值时相等的。</p>
+<h4 id="密度作为概率估计"><a href="#密度作为概率估计" class="headerlink" title="密度作为概率估计"></a>密度作为概率估计</h4><p>密度可以作为</p>
+<ol>
+<li>任意两个节点存在连接的概率（样本统计）</li>
+<li>这些概率的估计值（样本推断总体）</li>
+</ol>
+<h1 id="第四讲-网络节点和图的特征"><a href="#第四讲-网络节点和图的特征" class="headerlink" title="第四讲 网络节点和图的特征"></a>第四讲 网络节点和图的特征</h1><p>路径和连通<br>节点和图的特征</p>
+<h2 id="网络连通度"><a href="#网络连通度" class="headerlink" title="网络连通度"></a>网络连通度</h2><p>网络密度（或均值）是一个图的非常粗略的描述<br>两个图可能密度/均值相似，但是结构完全不同（例如星状图和圈状图）</p>
+<p><img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-30 235305.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-30 235305" style="zoom:50%;" /></p>
+<p>网络连通度作为网络结构特征<br>直观而言，高度连通的图需满足：图中节点能够通过一定的连接（connections）或路径（paths）到达其他任意节点。</p>
+<p>为了评估连通度，需要计算每一对节点之间（最短的）路的长度。</p>
+<p>网络连通度涉及到信息或疾病扩散；社会影响（直接或间接影响）</p>
+<h3 id="线路、迹和路径"><a href="#线路、迹和路径" class="headerlink" title="线路、迹和路径"></a>线路、迹和路径</h3><p>线路（walk）：两个邻接节点之间的<strong>任意</strong>步伐次序</p>
+<ul>
+<li>线路的长度：步伐次序中节点的数量减一</li>
+</ul>
+<p>迹（trail）：包含<strong>不同边（edge）</strong>的线路</p>
+<p>路径（path）：包含<strong>不同节点（node）</strong>的<strong>迹</strong></p>
+<p>按照定义，路径属于迹，迹属于线路。</p>
+<p>例：<img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-30 235814.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-30 235814" style="zoom:67%;" /></p>
+<p>根据上图，可写出三种路径：$w=(2,1,6,3,4)\<br>w=(2,1,6,3,4,1,5)\<br>w=(2,1,2,5,1,4)$</p>
+<p>其中，第一种是path，第二种是trail，第三种是walk。</p>
+<p>根据实际情境，需要关注线路、迹和路径数量和类别。例如：</p>
+<ul>
+<li>概率：图中的随即路线（random walk）</li>
+<li>交通网络：迹</li>
+<li>沟通网络或疾病传播：节点之间的路径</li>
+</ul>
+<h3 id="可达性和连通度"><a href="#可达性和连通度" class="headerlink" title="可达性和连通度"></a>可达性和连通度</h3><p>可达（reachable）：两个节点存在有一个路径<br>连通（connected）：一个网络中<strong>任意一对节点</strong>都是可达的<br><strong>分图</strong>（component）：最大连通子图</p>
+<ul>
+<li>根据节点生成的子图</li>
+<li><strong>增加一个其他节点会导致子图不再是连通的</strong>（其他的节点一定都是孤立的节点）。</li>
+</ul>
+<h3 id="连通和割点"><a href="#连通和割点" class="headerlink" title="连通和割点"></a>连通和割点</h3><p>连通度的一个标准是对去除节点或边的稳健度如何。</p>
+<p>割点（cutpoint）：如果去掉一个节点后，新图的分图大于原来的图，则该节点为割点。令$\mathcal{G}$为一个图，$\mathcal{G}_{-i}$为节点生成的子图，$\lbrace i,…,n \rbrace \backslash \lbrace i \rbrace$. $i$为割点——当后者的分图数量大于前者的分图数量，则i为割点。</p>
+<h3 id="节点连通度"><a href="#节点连通度" class="headerlink" title="节点连通度"></a>节点连通度</h3><p>节点连通度：使图 $\mathcal{G}$ 断联（disconnected）需要移除的<strong>最小节点数量</strong>。例：</p>
+<p><img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-31 001111.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-31 001111" style="zoom: 50%;" /></p>
+<p>其局限性在于：完全图（complete gragh）的节点连通度为n-1.</p>
+<h3 id="连通度和桥"><a href="#连通度和桥" class="headerlink" title="连通度和桥"></a>连通度和桥</h3><p>对移除边（edge）的稳健度<br>桥（bridge）：移除边之后（节点不移除），新图的分图比之前多，则移除的边为桥。令$\mathcal{G}$为一个图，$\mathcal{G}_{-e}$为移除边$e$的图，当后者的分图数量大于前者的分图数量，则e为桥。</p>
+<ul>
+<li>三元图具有很强的稳定性，（在全部连接的情况下）移除任何边也都很难改变其连通性。</li>
+</ul>
+<h4 id="边连通度"><a href="#边连通度" class="headerlink" title="边连通度"></a>边连通度</h4><p>边连通度：使图$\mathcal{G}$断联所需移除的最小的边的数量。</p>
+<h3 id="测地线距离（最短距离）"><a href="#测地线距离（最短距离）" class="headerlink" title="测地线距离（最短距离）"></a>测地线距离（最短距离）</h3><p>测地线（geodesic）指两个节点之间的最短路径。即，测地线距离$d(i,j)$为节点$i$和$j$之间的最短路径长度。</p>
+<p>需要注意的是测地线并非是唯一的。</p>
+<h3 id="节点偏心率"><a href="#节点偏心率" class="headerlink" title="节点偏心率"></a>节点偏心率</h3><p>节点偏心率（node eccentracity），记为e，指的是一个节点和其他所有节点测地线距离的最大值。<br>一个集合。</p>
+<p>例：<img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-30 235814.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-30 235814" style="zoom:67%;" /></p>
+<p>$e=(2,3,3,2,3,2)$</p>
+<h4 id="直径"><a href="#直径" class="headerlink" title="直径"></a>直径</h4><p>网络中节点之间测地线距离的最大值。</p>
+<p>例如针对上图，直径为 $diam(Y)=max\lbrace 2,3,3,2,3,2\rbrace = 3$</p>
+<h3 id="如何计算步数"><a href="#如何计算步数" class="headerlink" title="如何计算步数"></a>如何计算步数</h3><p>计算节点之间的步数是非常关键的。</p>
+<ul>
+<li>节点之间的路径步数有助于理解图的连通度</li>
+<li>最小距离的路径步数有助于计算测地线距离</li>
+</ul>
+<p>算法：矩阵乘法。</p>
+<h4 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h4><p>令$X$为$l \times m$的矩阵，$Y$为$m \times n$的矩阵。$X,Y$相乘得到$l \times n$的矩阵$Z$，<strong>矩阵项</strong>（entry）为</p>
+<script type="math/tex; mode=display">
+z_{i,j}=\sum_{k=1}^{m}x_{i,k} \, y_{k,j}</script><p><img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-31 002544.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-31 002544" style="zoom:50%;" /></p>
+<h4 id="通过矩阵乘法计算共同成员关系"><a href="#通过矩阵乘法计算共同成员关系" class="headerlink" title="通过矩阵乘法计算共同成员关系"></a>通过矩阵乘法计算共同成员关系</h4><p>$y_{i,j}=$在群体j中个体i的成员资格</p>
+<script type="math/tex; mode=display">
+Y=
+\begin{pmatrix}
+0 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 0
+\end{pmatrix}</script><p>其转置矩阵$Y^T$（其中$y<em>{i,j}^t= y</em>{j,i}$）为</p>
+<script type="math/tex; mode=display">
+Y^T=\begin{pmatrix}
+0&0&1&0&0&1\\
+1&1&1&0&1&0\\
+0&1&0&0&1&0
+\end{pmatrix}</script><p>两种情况：</p>
+<script type="math/tex; mode=display">
+(1) \quad YY^T=
+\begin{pmatrix}
+0 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1&0&0&1\\
+1&1&1&0&1&0\\
+0&1&0&0&1&0
+\end{pmatrix}</script><script type="math/tex; mode=display">
+(2) \quad Y^TY=
+\begin{pmatrix}
+0&0&1&0&0&1\\
+1&1&1&0&1&0\\
+0&1&0&0&1&0
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 0
+\end{pmatrix}</script><p>其中第一种情况计算的含义是：令$Z=YY^T$，则$z_{i,j}$表示成员i，j共同从属的群体数量。</p>
+<p>第二种情况计算含义是：令$Z=Y^TY$，则$z_{i,j}$表示群体i，j的共同成员数量。</p>
+<h4 id="二元社会矩阵相乘"><a href="#二元社会矩阵相乘" class="headerlink" title="二元社会矩阵相乘"></a>二元社会矩阵相乘</h4><p>二元社会矩阵相乘得出节点之间线路（walk）的数量。</p>
+<p>例如，对于</p>
+<p><img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-30 235814.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-30 235814" style="zoom:67%;" /></p>
+<p>可做社会矩阵（为方便计算，将对角线取0）</p>
+<script type="math/tex; mode=display">
+Y=
+\begin{pmatrix}
+0 & 1 & 0 & 1 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 1\\
+1 & 0 & 1 & 0 & 0 & 0\\
+1 & 1 & 0 & 0 & 0 & 0\\
+1 & 0 & 1 & 0 & 0 & 0
+\end{pmatrix}</script><p>则</p>
+<script type="math/tex; mode=display">
+Y^2=
+\begin{pmatrix}
+4 & 1 & 2 & 0 & 1 & 0\\
+1 & 2 & 0 & 1 & 1 & 1\\
+2 & 0 & 2 & 0 & 0 & 0\\
+0 & 1 & 0 & 2 & 1 & 2\\
+1 & 1 & 0 & 1 & 2 & 1\\
+0 & 1 & 0 & 2 & 1 & 2
+\end{pmatrix}</script><p>$Y^2$中每个$y<em>{i,j}$表示从i到j有多少长度为2的线路；以此类推，计算长度为3的线路则为$Y^3$中的$y</em>{i,j}$</p>
+<h4 id="评估网络的可达度和连通度"><a href="#评估网络的可达度和连通度" class="headerlink" title="评估网络的可达度和连通度"></a>评估网络的可达度和连通度</h4><p>定义$X^{(k)},k = 1,2,\cdots,n-1:\ X^{(1)}=Y\X^{(2)}=Y + Y^2\X^{(k)}= Y + Y^2 + \cdots +Y^k$</p>
+<p>则$X^{(k)}$为两个节点之间长度小于等于k的线路的数量</p>
+<h2 id="节点和图的特征"><a href="#节点和图的特征" class="headerlink" title="节点和图的特征"></a>节点和图的特征</h2><h3 id="节点中心性"><a href="#节点中心性" class="headerlink" title="节点中心性"></a>节点中心性</h3><p>社会网络分析的核心问题是识别网络中的“核心”个体<br>节点指标（node-level index）是一个图和节点的方程，用以量化网络中个体位置的特征。</p>
+<p>Koschutzki（2005）中心度测量的分类</p>
+<ul>
+<li>可达（reach）：自身能够抵达其他节点的能力</li>
+<li>流（flow）：网络中线路经过自身的数量/权重</li>
+<li>关键度（vitality）：将自身从网络中移除的影响</li>
+<li>反馈（feedback）：自身改变其他节点中心都的递归方程</li>
+</ul>
+<h3 id="从中心性到中心势"><a href="#从中心性到中心势" class="headerlink" title="从中心性到中心势"></a>从中心性到中心势</h3><p>中心性（centrality）测量节点层面的位置特征<br>中心势（centralization）测量图层面的位置分布特征</p>
+<p>令$c^<em>$为$max \lbrace c<em>{1}, \cdots ,c</em>{n} \rbrace$，令$S$为$\sum_{i}[c^</em>-c_i]$，如果S为0，则图中所有节点的中心性相等，例如环状图或无连接的图。</p>
+<h3 id="中心势"><a href="#中心势" class="headerlink" title="中心势"></a>中心势</h3><p>网络层面的中心势：</p>
+<script type="math/tex; mode=display">
+C =\frac{\sum_{1}[c^*-c_{i}]}{max \sum_{i}[c^*-c_{i}]}  \quad(0 \le C \le 1)</script><p>分母上的最大值取决于节点中心性测量的方式。如果C为0，则所有节点中心性相同；C为1，则一个节点有最大值的中心性。</p>
+<h3 id="度中心性（degree-centrality）"><a href="#度中心性（degree-centrality）" class="headerlink" title="度中心性（degree centrality）"></a>度中心性（degree centrality）</h3><p>度（degree）：连接（tie）的数量。度数越大的个体影响力越大，同时受到别的个体的影响也越大。</p>
+<p>计算：</p>
+<ul>
+<li>度（无向网络）：$c<em>{i}^{d}=\sum</em>{j:i \ne j}^{n} y_{j,i}$</li>
+<li>入度（indegree，有向网络）：$c<em>{i}^{i}=\sum</em>{j:i\ne j}^{n}y_{j,i}$</li>
+<li>出度（outdegree，有向网络）：$c<em>{i}^{o}=\sum</em>{j:i \ne j}^{n}y_{i,j}$</li>
+</ul>
+<p>标准化的度中心性：$\widetilde{c}<em>{i}^{d}=\frac{c</em>{i}^{d}}{c<em>{max}^{d}} \frac{c</em>{i}^{d}}{n-1}$</p>
+<h4 id="度中心势（degree-centralization）"><a href="#度中心势（degree-centralization）" class="headerlink" title="度中心势（degree centralization）"></a>度中心势（degree centralization）</h4><p>计算公式为：$<br>C^d= \frac{\sum<em>{i}[c^{d*}-c</em>{i}^{d}]}{max \sum<em>{i}[c^{d*}-c</em>{i}^{d}]}<br>$（$c^{d*}$表示网络中可以被观测到的最大度中心性）</p>
+<p>分母的最大值出现在（星状图）：</p>
+<ul>
+<li>一个节点最大可能的度数是n-1</li>
+<li>其他节点最小可能度数为1</li>
+</ul>
+<p>因此度中心势的公式为：</p>
+<script type="math/tex; mode=display">
+C^d = \frac{\sum_i[c^{d*}-c_{i}^{d}]}{(n-1)(n-2)}</script><h3 id="中介中心性"><a href="#中介中心性" class="headerlink" title="中介中心性"></a>中介中心性</h3><p>中介（betweenness）：自身处于其他两个节点最短路径上</p>
+<ul>
+<li>多大程度上个体充当了桥</li>
+<li>高度的中介位置是中间人(broker)或者守门人(gatekeeper)：对信息流有更强的控制力</li>
+</ul>
+<p>中介中心性(betweenness centrality)：</p>
+<script type="math/tex; mode=display">
+c_{i}^b = \sum_{j<k} \frac{g_{j,k}(i)} {g_{i,k}}</script><p>其中，$g<em>{i,k}$是节点j和k的测地线数量；$g</em>{j,k}(i)$是节点j和k的测地线经过节点i的数量。<br>因此，该公式表示的是从j到k传递一个“信息”时需要经过节点i的可能性。<strong>如果两个节点之间不可达，则定义$\frac{g<em>{j,k}(i)}{g</em>{i,k}}$为0</strong>。</p>
+<p>$c<em>{i}^{b}$的最大可能值为$C</em>{n-1}^2= \frac{(n-1)(n-2)}{2}$</p>
+<p>则标准化的中介中心性为：$\widetilde{c}<em>{i}^{b}=\frac{c</em>{i}^{b}}{C_{n-1}^{2}}$</p>
+<h4 id="中介中心势"><a href="#中介中心势" class="headerlink" title="中介中心势"></a>中介中心势</h4><p>中心势为：$<br>C^b= \frac{\sum<em>{i}[c^{b*}-c</em>{i}^{b}]}{max \sum<em>{i}[c^{b*}-c</em>{i}^{b}]}<br>$（$c^{b*}$表示网络中可以被观测到的最大中介中心性）</p>
+<p>分母最大值出现在星状图：一个节点具有最大可能的中介中心性，其他节点有最小可能的中介中心性。则$max \sum<em>i[c^{b*}-c</em>{i}^{b}]$可被化简为$\frac{(n-1)^2(n-2)}{2}$。</p>
+<p>因此中介中心势公式为：</p>
+<script type="math/tex; mode=display">
+C^b = \frac{2\sum_i[c^{b*}-c_{i}^{b}]}{(n-1)^2(n-2)}</script><h3 id="紧密中心性-closeness-centrality"><a href="#紧密中心性-closeness-centrality" class="headerlink" title="紧密中心性(closeness centrality)"></a>紧密中心性(closeness centrality)</h3><p>一个核心的节点是和其他节点最接近的</p>
+<p>紧密中心性：$c<em>{i}^{c}= \frac{1}{\sum</em>{j:j\ne i}d<em>{i,j}}=\frac{1}{(n-1) \overline{d</em>{i}}}$</p>
+<ul>
+<li>（测地线）距离：两节点之间的最短路径</li>
+<li>局限性：不适用于无连接网络</li>
+</ul>
+<p>对于一个节点$i$，如果$d<em>{i,j}$为1，那么$c</em>{max}^{c}=\frac{1}{n-1}$，所以标准化的紧密中心性就是：$\widetilde{c}<em>{i}^{c}=\frac{1}{\overline{d</em>{i}}}$</p>
+<h4 id="紧密中心势（closeness-centralization）"><a href="#紧密中心势（closeness-centralization）" class="headerlink" title="紧密中心势（closeness centralization）"></a>紧密中心势（closeness centralization）</h4><p>中心势：$<br>C^c= \frac{\sum<em>{i}[c^{c*}-c</em>{i}^{c}]}{max \sum<em>{i}[c^{c*}-c</em>{i}^{c}]}<br>$（$c^{c*}$表示网络中可以被观测到的最大紧密中心性）</p>
+<p>分母的最大值出现在星状图中，其中一个节点为最大可能的紧密中心性$c^{c*}=\frac{1}{n-1}$，其他节点为紧密中心性的最小值$c_{i}^{c}=\frac{1}{2n-3}$。</p>
+<p>所以对于星状图而言，$max\sum<em>{i}[c^{c*}-c</em>{i}^{c}]= \frac{n-2}{2n-3}$</p>
+<p>因此，紧密中心势的计算为：</p>
+<script type="math/tex; mode=display">
+C^c = \frac{(2n-3)\sum_{i}[c^{c*}-c_{i}^{c}]}{n-2}</script><h3 id="三种中心性的比较"><a href="#三种中心性的比较" class="headerlink" title="三种中心性的比较"></a>三种中心性的比较</h3><h3 id="特征向量中心性"><a href="#特征向量中心性" class="headerlink" title="特征向量中心性"></a>特征向量中心性</h3><p>如何在网络上寻找最重要的信息？</p>
+<ul>
+<li>网页作为节点</li>
+<li>网页和网页的连接作为边</li>
+</ul>
+<p>Pagerank：Google等搜索引擎公司对网页进行排名的基本算法</p>
+<ul>
+<li>网页的重要性可以根据其他重要性进行排名</li>
+<li>这一重要性取决于有多少其他网页会链接到这一网页</li>
+</ul>
+<p>假设一个网页$P<em>{j}$有$l</em>{j}$个网络链接（link），其中某一个网络链接为$P{i}$，那么定义$P_{j}$将其$1/l_j$的重要性传递给$P_i$。</p>
+<p>那么$P_i$的重要性就是其他所有网页所传递到$P_i$的重要性的加总：$I(P_i)=\sum_j \frac{I(P_j)}{l_j}$</p>
+<ul>
+<li>特征向量中心性是一个递归（recursive）问题。</li>
+</ul>
+<p>可以将所有网页之间的连接用矩阵Y来表示，其中：</p>
+<script type="math/tex; mode=display">
+y_{i,j}=\begin{cases}
+1/l_j \\
+0
+\end{cases}</script><p>特征向量中心性（eigenvector centrality）：每个节点的中心性时其邻接节点中心性所传递的权重总和。</p>
+<script type="math/tex; mode=display">
+c_i^e=\frac{1}{\lambda}\sum_{j:j\ne i}y_{i,j}c_{j}^e</script><p>定义矩阵Y的特征向量为一个非零列$c^e$，使得$Yc^e = \lambda c^e$，其中$\lambda$为矩阵Y的特征值。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/R/">R</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/01/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
