@@ -356,7 +356,7 @@
 <h3 id="节点和边"><a href="#节点和边" class="headerlink" title="节点和边"></a>节点和边</h3><p>形式上，一个图包括：</p>
 <ul>
 <li>一组节点：$\mathcal{N} =\lbrace 1, …,n \rbrace$;</li>
-<li>一组节点之间的连接或边（edge）：$\mathcal{E} = \lbrace e<em>{1}, …, e</em>{n} \rbrace$</li>
+<li>一组节点之间的连接或边（edge）： $\mathcal{E} = \lbrace e<em>{1}, …, e</em>{n} \rbrace$</li>
 </ul>
 <p>这个图记为：$\mathcal{G} = \lbrace \mathcal{N}, \mathcal{E}\rbrace$</p>
 <ul>
@@ -375,13 +375,13 @@
 <li>空图（empty graph）：如果$\mathcal{E} = \emptyset$，即没有连接，那么这个图是空图</li>
 <li>完全图（complete graph）：如果$\mathcal{E} =\lbrace \lbrace i, j \rbrace : i \in \mathcal{N}, j \in \mathcal{N}, i \neq j \rbrace$，记为完全图，即存在所有可能的连接或边。</li>
 </ul>
-<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><p>定义：$\mathcal{G}<em>{S}= \lbrace \mathcal{N}</em>{S}, \mathcal{E}_{S} \rbrace$为$\mathcal{G} = \lbrace \mathcal{N}, \mathcal{E}\rbrace$的一个子图，当</p>
+<h3 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h3><p>定义： $\mathcal{G}<em>{S}= \lbrace \mathcal{N}</em>{S}, \mathcal{E}_{S} \rbrace$ 为 $\mathcal{G} = \lbrace \mathcal{N}, \mathcal{E}\rbrace$ 的一个子图，当</p>
 <ul>
 <li>$\mathcal{N}_{S} \subset \mathcal{N}$</li>
-<li>$\mathcal{E}<em>{S} \subset \mathcal{E}$，并且$\mathcal{E}</em>{S}$内所有的边都是$\mathcal{N}_{S}$中节点之间的连接</li>
+<li>$\mathcal{E}<em>{S} \subset \mathcal{E}$ ，并且 $\mathcal{E}</em>{S}$ 内所有的边都是 $\mathcal{N}_{S}$ 中节点之间的连接</li>
 </ul>
 <p>子图的生成可以基于节点或边。</p>
-<h4 id="节点生成的子图"><a href="#节点生成的子图" class="headerlink" title="节点生成的子图"></a>节点生成的子图</h4><p>数学上可以表示为：$\mathcal{E}<em>{S}= \mathcal{E} \cap \lbrace \lbrace i, j \rbrace : i \in \mathcal{N}</em>{S}, j \in \mathcal{N}_{S} \rbrace$</p>
+<h4 id="节点生成的子图"><a href="#节点生成的子图" class="headerlink" title="节点生成的子图"></a>节点生成的子图</h4><p>数学上可以表示为： $\mathcal{E}<em>{S}= \mathcal{E} \cap \lbrace \lbrace i, j \rbrace : i \in \mathcal{N}</em>{S}, j \in \mathcal{N}_{S} \rbrace$</p>
 <p>节点生成的子图具有实际的意义</p>
 <ul>
 <li>通常是研究所感兴趣的内容，如不同性别的朋友网络</li>
@@ -407,7 +407,7 @@
 <h3 id="加权的边"><a href="#加权的边" class="headerlink" title="加权的边"></a>加权的边</h3><p>很多情况下，关系变量并非仅仅是二元数字（0，1），而是实数。例如沟通网络和冲突合作网络。在这种情况下，可以使用<strong>加权边列表</strong>。</p>
 <h4 id="加权边列表"><a href="#加权边列表" class="headerlink" title="加权边列表"></a>加权边列表</h4><p>例子：</p>
 <script type="math/tex; mode=display">
-\quad行\quad列\quad权重\\
+\quad行\quad列\quad权重 \\
 \mathcal{E}=
 \begin{pmatrix}
 1 & 2 & 8\\
@@ -514,7 +514,7 @@ na & 1 & 0 & 0 & 1\\
 <p>路径（path）：包含<strong>不同节点（node）</strong>的<strong>迹</strong></p>
 <p>按照定义，路径属于迹，迹属于线路。</p>
 <p>例：<img src="C:\Users\gongh\OneDrive\文档\obsidian\附件\屏幕截图 2021-03-30 235814.png" srcset="/img/loading.gif" lazyload alt="屏幕截图 2021-03-30 235814" style="zoom:67%;" /></p>
-<p>根据上图，可写出三种路径：$w=(2,1,6,3,4)\<br>w=(2,1,6,3,4,1,5)\<br>w=(2,1,2,5,1,4)$</p>
+<p>根据上图，可写出三种路径：$w=(2,1,6,3,4) \<br>w=(2,1,6,3,4,1,5) \<br>w=(2,1,2,5,1,4)$</p>
 <p>其中，第一种是path，第二种是trail，第三种是walk。</p>
 <p>根据实际情境，需要关注线路、迹和路径数量和类别。例如：</p>
 <ul>
@@ -623,8 +623,8 @@ Y^2=
 0 & 1 & 0 & 2 & 1 & 2\\
 1 & 1 & 0 & 1 & 2 & 1\\
 0 & 1 & 0 & 2 & 1 & 2
-\end{pmatrix}</script><p>$Y^2$中每个$y<em>{i,j}$表示从i到j有多少长度为2的线路；以此类推，计算长度为3的线路则为$Y^3$中的$y</em>{i,j}$</p>
-<h4 id="评估网络的可达度和连通度"><a href="#评估网络的可达度和连通度" class="headerlink" title="评估网络的可达度和连通度"></a>评估网络的可达度和连通度</h4><p>定义$X^{(k)},k = 1,2,\cdots,n-1:\ X^{(1)}=Y\X^{(2)}=Y + Y^2\X^{(k)}= Y + Y^2 + \cdots +Y^k$</p>
+\end{pmatrix}</script><p>$Y^2$中每个 $y<em>{i,j}$ 表示从i到j有多少长度为2的线路；以此类推，计算长度为3的线路则为 $Y^3$ 中的 $y</em>{i,j}$</p>
+<h4 id="评估网络的可达度和连通度"><a href="#评估网络的可达度和连通度" class="headerlink" title="评估网络的可达度和连通度"></a>评估网络的可达度和连通度</h4><p>定义$X^{(k)},k = 1,2,\cdots,n-1: \ X^{(1)}=Y \ X^{(2)}=Y + Y^2 \ X^{(k)}= Y + Y^2 + \cdots +Y^k$</p>
 <p>则$X^{(k)}$为两个节点之间长度小于等于k的线路的数量</p>
 <h2 id="节点和图的特征"><a href="#节点和图的特征" class="headerlink" title="节点和图的特征"></a>节点和图的特征</h2><h3 id="节点中心性"><a href="#节点中心性" class="headerlink" title="节点中心性"></a>节点中心性</h3><p>社会网络分析的核心问题是识别网络中的“核心”个体<br>节点指标（node-level index）是一个图和节点的方程，用以量化网络中个体位置的特征。</p>
 <p>Koschutzki（2005）中心度测量的分类</p>
@@ -635,19 +635,19 @@ Y^2=
 <li>反馈（feedback）：自身改变其他节点中心都的递归方程</li>
 </ul>
 <h3 id="从中心性到中心势"><a href="#从中心性到中心势" class="headerlink" title="从中心性到中心势"></a>从中心性到中心势</h3><p>中心性（centrality）测量节点层面的位置特征<br>中心势（centralization）测量图层面的位置分布特征</p>
-<p>令$c^<em>$为$max \lbrace c<em>{1}, \cdots ,c</em>{n} \rbrace$，令$S$为$\sum_{i}[c^</em>-c_i]$，如果S为0，则图中所有节点的中心性相等，例如环状图或无连接的图。</p>
+<p>令$c^<em>$为$max \lbrace c<em>{1}, \cdots ,c</em>{n} \rbrace$ ，令 $S$ 为 $\sum_{i}[c^</em>-c_i]$，如果S为0，则图中所有节点的中心性相等，例如环状图或无连接的图。</p>
 <h3 id="中心势"><a href="#中心势" class="headerlink" title="中心势"></a>中心势</h3><p>网络层面的中心势：</p>
 <script type="math/tex; mode=display">
 C =\frac{\sum_{1}[c^*-c_{i}]}{max \sum_{i}[c^*-c_{i}]}  \quad(0 \le C \le 1)</script><p>分母上的最大值取决于节点中心性测量的方式。如果C为0，则所有节点中心性相同；C为1，则一个节点有最大值的中心性。</p>
 <h3 id="度中心性（degree-centrality）"><a href="#度中心性（degree-centrality）" class="headerlink" title="度中心性（degree centrality）"></a>度中心性（degree centrality）</h3><p>度（degree）：连接（tie）的数量。度数越大的个体影响力越大，同时受到别的个体的影响也越大。</p>
 <p>计算：</p>
 <ul>
-<li>度（无向网络）：$c<em>{i}^{d}=\sum</em>{j:i \ne j}^{n} y_{j,i}$</li>
-<li>入度（indegree，有向网络）：$c<em>{i}^{i}=\sum</em>{j:i\ne j}^{n}y_{j,i}$</li>
-<li>出度（outdegree，有向网络）：$c<em>{i}^{o}=\sum</em>{j:i \ne j}^{n}y_{i,j}$</li>
+<li>度（无向网络）：$c<em>{i}^{d}= \sum</em>{j:i \ne j}^{n} y_{j,i}$</li>
+<li>入度（indegree，有向网络）：$c<em>{i}^{i}= \sum</em>{j:i \ne j}^{n}y_{j,i}$</li>
+<li>出度（outdegree，有向网络）：$c<em>{i}^{o}= \sum</em>{j:i \ne j}^{n}y_{i,j}$</li>
 </ul>
-<p>标准化的度中心性：$\widetilde{c}<em>{i}^{d}=\frac{c</em>{i}^{d}}{c<em>{max}^{d}} \frac{c</em>{i}^{d}}{n-1}$</p>
-<h4 id="度中心势（degree-centralization）"><a href="#度中心势（degree-centralization）" class="headerlink" title="度中心势（degree centralization）"></a>度中心势（degree centralization）</h4><p>计算公式为：$<br>C^d= \frac{\sum<em>{i}[c^{d*}-c</em>{i}^{d}]}{max \sum<em>{i}[c^{d*}-c</em>{i}^{d}]}<br>$（$c^{d*}$表示网络中可以被观测到的最大度中心性）</p>
+<p>标准化的度中心性： $\widetilde{c}<em>{i}^{d}= \frac{c</em>{i}^{d}}{c<em>{max}^{d}} \frac{c</em>{i}^{d}}{n-1}$</p>
+<h4 id="度中心势（degree-centralization）"><a href="#度中心势（degree-centralization）" class="headerlink" title="度中心势（degree centralization）"></a>度中心势（degree centralization）</h4><p>计算公式为：$C^d= \frac{\sum<em>{i}[c^{d*}-c</em>{i}^{d}]}{max \sum<em>{i}[c^{d*}-c</em>{i}^{d}]}$<br>（ $c^{d*}$ 表示网络中可以被观测到的最大度中心性）</p>
 <p>分母的最大值出现在（星状图）：</p>
 <ul>
 <li>一个节点最大可能的度数是n-1</li>
@@ -662,23 +662,25 @@ C^d = \frac{\sum_i[c^{d*}-c_{i}^{d}]}{(n-1)(n-2)}</script><h3 id="中介中心�
 </ul>
 <p>中介中心性(betweenness centrality)：</p>
 <script type="math/tex; mode=display">
-c_{i}^b = \sum_{j<k} \frac{g_{j,k}(i)} {g_{i,k}}</script><p>其中，$g<em>{i,k}$是节点j和k的测地线数量；$g</em>{j,k}(i)$是节点j和k的测地线经过节点i的数量。<br>因此，该公式表示的是从j到k传递一个“信息”时需要经过节点i的可能性。<strong>如果两个节点之间不可达，则定义$\frac{g<em>{j,k}(i)}{g</em>{i,k}}$为0</strong>。</p>
-<p>$c<em>{i}^{b}$的最大可能值为$C</em>{n-1}^2= \frac{(n-1)(n-2)}{2}$</p>
-<p>则标准化的中介中心性为：$\widetilde{c}<em>{i}^{b}=\frac{c</em>{i}^{b}}{C_{n-1}^{2}}$</p>
-<h4 id="中介中心势"><a href="#中介中心势" class="headerlink" title="中介中心势"></a>中介中心势</h4><p>中心势为：$<br>C^b= \frac{\sum<em>{i}[c^{b*}-c</em>{i}^{b}]}{max \sum<em>{i}[c^{b*}-c</em>{i}^{b}]}<br>$（$c^{b*}$表示网络中可以被观测到的最大中介中心性）</p>
-<p>分母最大值出现在星状图：一个节点具有最大可能的中介中心性，其他节点有最小可能的中介中心性。则$max \sum<em>i[c^{b*}-c</em>{i}^{b}]$可被化简为$\frac{(n-1)^2(n-2)}{2}$。</p>
+c_{i}^b = \sum_{j<k} \frac{g_{j,k}(i)} {g_{i,k}}</script><p>其中， $g<em>{i,k}$ 是节点j和k的测地线数量； $g</em>{j,k}(i)$是节点j和k的测地线经过节点i的数量。<br>因此，该公式表示的是从j到k传递一个“信息”时需要经过节点i的可能性。<strong>如果两个节点之间不可达，则定义$\frac{g<em>{j, k}(i)}{g</em>{i, k}}$为0</strong>。</p>
+<p>$c<em>{i}^{b}$ 的最大可能值为 $C</em>{n-1}^2= \frac{(n-1)(n-2)}{2}$</p>
+<p>则标准化的中介中心性为：$\widetilde{c}<em>{i}^{b}= \frac{c</em>{i}^{b}}{C_{n-1}^{2}}$</p>
+<h4 id="中介中心势"><a href="#中介中心势" class="headerlink" title="中介中心势"></a>中介中心势</h4><p>中心势为：$C^b= \frac{\sum<em>{i}[c^{b*}-c</em>{i}^{b}]}{max \sum<em>{i}[c^{b*}-c</em>{i}^{b}]}$</p>
+<p>（$c^{b*}$表示网络中可以被观测到的最大中介中心性）</p>
+<p>分母最大值出现在星状图：一个节点具有最大可能的中介中心性，其他节点有最小可能的中介中心性。则 $max \sum<em>i[c^{b*}-c</em>{i}^{b}]$ 可被化简为 $\frac{(n-1)^2(n-2)}{2}$。</p>
 <p>因此中介中心势公式为：</p>
 <script type="math/tex; mode=display">
 C^b = \frac{2\sum_i[c^{b*}-c_{i}^{b}]}{(n-1)^2(n-2)}</script><h3 id="紧密中心性-closeness-centrality"><a href="#紧密中心性-closeness-centrality" class="headerlink" title="紧密中心性(closeness centrality)"></a>紧密中心性(closeness centrality)</h3><p>一个核心的节点是和其他节点最接近的</p>
-<p>紧密中心性：$c<em>{i}^{c}= \frac{1}{\sum</em>{j:j\ne i}d<em>{i,j}}=\frac{1}{(n-1) \overline{d</em>{i}}}$</p>
+<p>紧密中心性：$c<em>{i}^{c}= \frac{1}{\sum</em>{j:j \ne i}d<em>{i,j}}= \frac{1}{(n-1) \overline{d</em>{i}}}$</p>
 <ul>
 <li>（测地线）距离：两节点之间的最短路径</li>
 <li>局限性：不适用于无连接网络</li>
 </ul>
-<p>对于一个节点$i$，如果$d<em>{i,j}$为1，那么$c</em>{max}^{c}=\frac{1}{n-1}$，所以标准化的紧密中心性就是：$\widetilde{c}<em>{i}^{c}=\frac{1}{\overline{d</em>{i}}}$</p>
-<h4 id="紧密中心势（closeness-centralization）"><a href="#紧密中心势（closeness-centralization）" class="headerlink" title="紧密中心势（closeness centralization）"></a>紧密中心势（closeness centralization）</h4><p>中心势：$<br>C^c= \frac{\sum<em>{i}[c^{c*}-c</em>{i}^{c}]}{max \sum<em>{i}[c^{c*}-c</em>{i}^{c}]}<br>$（$c^{c*}$表示网络中可以被观测到的最大紧密中心性）</p>
-<p>分母的最大值出现在星状图中，其中一个节点为最大可能的紧密中心性$c^{c*}=\frac{1}{n-1}$，其他节点为紧密中心性的最小值$c_{i}^{c}=\frac{1}{2n-3}$。</p>
-<p>所以对于星状图而言，$max\sum<em>{i}[c^{c*}-c</em>{i}^{c}]= \frac{n-2}{2n-3}$</p>
+<p>对于一个节点$i$，如果 $d<em>{i,j}$ 为1，那么$c</em>{max}^{c}= \frac{1}{n-1}$，所以标准化的紧密中心性就是：$\widetilde{c}<em>{i}^{c}= \frac{1}{\overline{d</em>{i}}}$</p>
+<h4 id="紧密中心势（closeness-centralization）"><a href="#紧密中心势（closeness-centralization）" class="headerlink" title="紧密中心势（closeness centralization）"></a>紧密中心势（closeness centralization）</h4><p>中心势：$C^c= \frac{\sum<em>{i}[c^{c*}-c</em>{i}^{c}]}{max \sum<em>{i}[c^{c*}-c</em>{i}^{c}]}$</p>
+<p>（$c^{c*}$表示网络中可以被观测到的最大紧密中心性）</p>
+<p>分母的最大值出现在星状图中，其中一个节点为最大可能的紧密中心性$c^{c*}=\frac{1}{n-1}$，其他节点为紧密中心性的最小值$c_{i}^{c}= \frac{1}{2n-3}$。</p>
+<p>所以对于星状图而言， $max \sum<em>{i}[c^{c*}-c</em>{i}^{c}]= \frac{n-2}{2n-3}$</p>
 <p>因此，紧密中心势的计算为：</p>
 <script type="math/tex; mode=display">
 C^c = \frac{(2n-3)\sum_{i}[c^{c*}-c_{i}^{c}]}{n-2}</script><h3 id="三种中心性的比较"><a href="#三种中心性的比较" class="headerlink" title="三种中心性的比较"></a>三种中心性的比较</h3><h3 id="特征向量中心性"><a href="#特征向量中心性" class="headerlink" title="特征向量中心性"></a>特征向量中心性</h3><p>如何在网络上寻找最重要的信息？</p>
@@ -691,7 +693,7 @@ C^c = \frac{(2n-3)\sum_{i}[c^{c*}-c_{i}^{c}]}{n-2}</script><h3 id="三种中心�
 <li>网页的重要性可以根据其他重要性进行排名</li>
 <li>这一重要性取决于有多少其他网页会链接到这一网页</li>
 </ul>
-<p>假设一个网页$P<em>{j}$有$l</em>{j}$个网络链接（link），其中某一个网络链接为$P{i}$，那么定义$P_{j}$将其$1/l_j$的重要性传递给$P_i$。</p>
+<p>假设一个网页$P<em>{j}$ 有 $l</em>{j}$个网络链接（link），其中某一个网络链接为$P{i}$，那么定义 $P_{j}$ 将其 $1/l_j$ 的重要性传递给 $P_i$。</p>
 <p>那么$P_i$的重要性就是其他所有网页所传递到$P_i$的重要性的加总：$I(P_i)=\sum_j \frac{I(P_j)}{l_j}$</p>
 <ul>
 <li>特征向量中心性是一个递归（recursive）问题。</li>
