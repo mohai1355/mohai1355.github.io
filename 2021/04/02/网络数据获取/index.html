@@ -18,7 +18,7 @@
   <meta name="author" content="mohai">
   <meta name="keywords" content="">
   
-  <title>R语言基本操作 - 漠海的自语地</title>
+  <title>网络数据获取 - 漠海的自语地</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="R语言基本操作">
+            <span class="h2" id="subtitle" title="网络数据获取">
               
             </span>
 
@@ -178,7 +178,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-02 14:45" pubdate>
+      <time datetime="2021-04-02 15:08" pubdate>
         2021年4月2日 下午
       </time>
     </span>
@@ -190,7 +190,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      249 字
+      1.9k 字
     </span>
   
 
@@ -221,53 +221,119 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">R语言基本操作</h1>
+            <h1 style="display: none">网络数据获取</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年4月2日 下午
+                  本文最后更新于：2021年4月2日 凌晨
                 
               </p>
             
             <div class="markdown-body">
-              <p>本文主要是记录在R语言学习过程中所涉及到的一些最基础的语法内容。会不断更新。</p>
-<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><p>向量的生成：c()<br>数列：seq(1, 10)</p>
+              <h1 id="第二讲-网络数据搜集"><a href="#第二讲-网络数据搜集" class="headerlink" title="第二讲 网络数据搜集"></a>第二讲 网络数据搜集</h1><p>搜集网络数据的步骤：社会网络类别、人口总体、网络边界、信息收集、网络结构推断。</p>
+<h2 id="社会网络的类型：一模和二模网络"><a href="#社会网络的类型：一模和二模网络" class="headerlink" title="社会网络的类型：一模和二模网络"></a>社会网络的类型：一模和二模网络</h2><p>一模网络（one-mode network）：只包含一种类别的节点，如书籍购买网络中的书籍；<br>二模网络（two-mode network）：从属网络或二分网络；包含两种类别的节点：如重构书籍网络中的用户和书籍两类节点。</p>
+<p>本质上一模网络是二模网络的整合（aggregation）。</p>
+<p>如果追求精确的信息，可以从二模网络入手，从个体层面更详细的信息来看。</p>
+<h2 id="网络边界"><a href="#网络边界" class="headerlink" title="网络边界"></a>网络边界</h2><p>小世界理论：在任何两位素不相识的人之间，通过一定的联系方式，总能够产生必然联系或关系。</p>
+<p><strong>从小世界理论到网络数据搜集</strong>：困难在于，在搜集网络数据时，<strong>缺乏网络边界会让不同受访者回答的网络数据不具有可比性</strong>。</p>
+<p>所以网络数据搜集需要<strong>明确网络边界</strong></p>
 <ul>
-<li>递增数列：seq(1, 10, by = 2)</li>
-<li>等差数列：seq(1, 10, length = 3)，长度为3</li>
+<li>研究的人口总体：节点</li>
+<li>研究的网络：连接</li>
 </ul>
-<p>向量的排序：</p>
+<h3 id="人口总体（population）"><a href="#人口总体（population）" class="headerlink" title="人口总体（population）"></a>人口总体（population）</h3><p>回顾定义：研究所感兴趣的所有个体的集合。<br>基于<strong>事实</strong>的界定：行动者感知的网络边界，例如同学、同事等</p>
 <ul>
-<li>sort()，排序从小到大</li>
-<li>rev()，排序从大到小</li>
-<li>order()，order(x)返回值的第k个数是x中第k小的数的位置</li>
-<li>a[order(a)]，排序从小到大</li>
+<li>是一种方法，但并不是一种概率均等的方式。其关键在于感知，是一个主观的判断，而不是客观的层面。例如：研究犯罪团体的网络结构。<br>基于<strong>理论</strong>的界定：基于研究者兴趣的定义，例如一所学校的学生、公司的员工等</li>
+<li>从一般角度来讲，更关心理论层面。例如：美国的addhealth</li>
 </ul>
-<p>向量的计算：</p>
+<h3 id="抽样（Sampling）"><a href="#抽样（Sampling）" class="headerlink" title="抽样（Sampling）"></a>抽样（Sampling）</h3><p>对现实网络边界内所有个体进行调查往往并不可行。——所以需要抽样——对于总体人口按照概率或结构抽取部分的样本。</p>
+<p>例子：15个人的朋友网络</p>
 <ul>
-<li>sum()</li>
-<li>mean()</li>
-<li>var()，方差</li>
-<li>sd()，标准差</li>
-<li>min()</li>
-<li>max()</li>
-<li>range()，取值范围（二维向量，最大值和最小值）</li>
+<li>自我中心抽样</li>
+<li>滚雪球抽样，但会存在遗漏个体/子集（例如：少数群体）</li>
 </ul>
-<h3 id="逻辑型"><a href="#逻辑型" class="headerlink" title="逻辑型"></a>逻辑型</h3><p>TRUE or FALSE</p>
-<p>which，用于筛选数据</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>matrix(x, nrow = n, ncol = n, byrow = T/F)</p>
-<h3 id="给行列命名"><a href="#给行列命名" class="headerlink" title="给行列命名"></a>给行列命名</h3><ul>
-<li>colnames() = c(“x”, “x”, …)</li>
-<li>rownames() = c(“a”, “b”,…)</li>
+<h4 id="如何解决遗漏问题？"><a href="#如何解决遗漏问题？" class="headerlink" title="如何解决遗漏问题？"></a>如何解决遗漏问题？</h4><p>希望得到完整的网络结构：</p>
+<ul>
+<li>以定义网络边界的组织或群体作为抽样单位</li>
+<li>对群体内所有成员进行调查</li>
 </ul>
-<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><ul>
-<li>a %*% b 两个向量之积</li>
-<li>solve() 逆矩阵</li>
-<li>apply() 可以将矩阵每一行或每一列当作向量进行操作</li>
+<p>希望推断某一个网络特征，如社会个体平均朋友的数量：</p>
+<ul>
+<li>借助统计推断（statistical inference）得出无偏估计(unbiased estimator)</li>
+<li>受访者驱动抽样(respondent driven method)；网络迭代法(network scale-up method)</li>
 </ul>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/r/r-tutorial.html">菜鸟教程：R语言教程</a></li>
+<h3 id="网络边界并不容易界定"><a href="#网络边界并不容易界定" class="headerlink" title="网络边界并不容易界定"></a>网络边界并不容易界定</h3><p>对于<strong>外生形成</strong>的群体，网络边界往往是清晰的，例如学生、员工。<br>对于<strong>自然形成</strong>的群体，网络边界难以明晰，例如自然村落、隐藏人口群体（如social stigma）。</p>
+<p>（网络边界不明晰的话，需要研究者通过努力）列出所有边界内的成员名单（roster）。</p>
+<h2 id="数据搜集方法"><a href="#数据搜集方法" class="headerlink" title="数据搜集方法"></a>数据搜集方法</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="案例一：Addhealth网络数据搜集"><a href="#案例一：Addhealth网络数据搜集" class="headerlink" title="案例一：Addhealth网络数据搜集"></a>案例一：Addhealth网络数据搜集</h4><p>人口总体和网络边界的界定</p>
+<ol>
+<li>以学校为单位，在Quality Education Database(QED)分层抽样，按照学校规模、区域、种族构成等抽取80所中学.</li>
+<li>获取所有学校的学生名单（roster）</li>
+<li>从80所高中选择16所，对在校所有学生的朋友网络和互动网络进行调查。<strong>网络边界是学生所在的每一所学校的内部</strong>，这样不同学校之间就具有可比较性了。</li>
 </ol>
+<p>调查问题：按顺序列出5个最好的朋友。<br>通过和所有学生名单匹配得到在校朋友网络。<br>关键点：学生作为抽样单位；网络边界……</p>
+<h4 id="案例二：Microfinance网络数据搜集"><a href="#案例二：Microfinance网络数据搜集" class="headerlink" title="案例二：Microfinance网络数据搜集"></a>案例二：Microfinance网络数据搜集</h4><p>“社会网络和小额信贷”项目由MIT和Stanford的经济学家设计执行，在印度加尔各答南部75个村庄搜集相关数据。</p>
+<p>调查问题：</p>
+<ol>
+<li>列出村庄中与你一起工作的人。</li>
+<li>如果突然需要借50块钱，你会找谁？（从村庄里选择）</li>
+</ol>
+<h3 id="网络结构数据的构成"><a href="#网络结构数据的构成" class="headerlink" title="网络结构数据的构成"></a>网络结构数据的构成</h3><p><strong>网络数据</strong></p>
+<ul>
+<li>节点：如一个班级的学生</li>
+<li>连接：如班级内的朋友关系</li>
+<li>权重：如对朋友的排序</li>
+</ul>
+<p><strong>特征数据</strong></p>
+<ul>
+<li>节点的特征：如学生的性别、年龄、年级等</li>
+</ul>
+<h3 id="网络结构搜集的两个要素"><a href="#网络结构搜集的两个要素" class="headerlink" title="网络结构搜集的两个要素"></a>网络结构搜集的两个要素</h3><p><strong>名册</strong>（roster）：全部个体的名单<br><strong>提名</strong>（name generator）：朋友网络、交谈网络、帮助网络等<br>要能相互对应。</p>
+<h3 id="网络结构数据搜集的几种方式"><a href="#网络结构数据搜集的几种方式" class="headerlink" title="网络结构数据搜集的几种方式"></a>网络结构数据搜集的几种方式</h3><ol>
+<li>名册勾选法：给出所有人名，让受访者勾选<ul>
+<li>优势：更准确；网络边界明晰</li>
+<li>劣势：在群体或组织达到一定规模时，名单会非常长</li>
+</ul>
+</li>
+<li>提名法：受访者主动填写名字<ul>
+<li>优势：不需要知道所有人名单；适用于大规模组织或群体中</li>
+<li>劣势：容易漏报；网络边界不明晰</li>
+</ul>
+</li>
+<li>认知社会结构（cognitive social structure）：询问每个受访者其所在群体所有成员的连接。例如，“xx在班级里的朋友有谁？”<ul>
+<li>优势：获得更复杂的感知网络数据；能够得到更准确的网络估计</li>
+<li>劣势：难以标准化进行分析；认知偏误较大</li>
+</ul>
+</li>
+</ol>
+<h3 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h3><ol>
+<li>准确度（accuracy）：受访者准确回忆调查社会互动、社会关系等信息。比较难以解决，主要取决于受访者。</li>
+<li>有效性（validity）：网络调查的问题能够有效测量研究者计划测量的信息</li>
+<li>可靠性（reliability）：重复测量网络信息能够保持一致。有效性和可靠性可以通过问卷设计来调整。</li>
+<li>测量偏误（measurement error）：“真实”的网络测量是由调查测量值和随机偏误构成的。如每个人的朋友数量并不等于5，如果调查中要求受访者列出5个朋友，会造成估计偏误（导致低估网络信息的复杂程度）。奇异值、负二项分布、泊松分布等情况。通过统计推断的方式可以降低偏误的影响。</li>
+</ol>
+<h2 id="调查数据：线下vs-线上"><a href="#调查数据：线下vs-线上" class="headerlink" title="调查数据：线下vs.线上"></a>调查数据：线下vs.线上</h2><p>成本问题<br>调查周期问题<br>调查质量问题</p>
+<h2 id="明确所需的网络信息"><a href="#明确所需的网络信息" class="headerlink" title="明确所需的网络信息"></a>明确所需的网络信息</h2><p>研究的目的：理解完整网络结构or测量网络特征or动态网络</p>
+<p>网络结构推断</p>
+<h2 id="网络特征数据搜集的其他方式"><a href="#网络特征数据搜集的其他方式" class="headerlink" title="网络特征数据搜集的其他方式"></a>网络特征数据搜集的其他方式</h2><p>总计关系数据（aggregate relational data）：通过自我中心的网络规模数据得到总计关系数据。</p>
+<ul>
+<li>Q：你认识多少人？<h3 id="案例：GSS（综合社会调查）网络数据搜集"><a href="#案例：GSS（综合社会调查）网络数据搜集" class="headerlink" title="案例：GSS（综合社会调查）网络数据搜集"></a>案例：GSS（综合社会调查）网络数据搜集</h3>抽样设计</li>
+<li>人口总体：18岁以上美国居民</li>
+<li>分层、多阶段随机抽样</li>
+<li>全国代表样本</li>
+<li>1500样本</li>
+</ul>
+<p>调查问题：你认识多少警察？你认识多少叫Kevin？</p>
+<ul>
+<li>社会资本理论，关键在一个人在社会中的位置，位置越好，所占有的社会资本也就越多。——其中关键就在于你认识多少人。</li>
+<li>统计推断：n/N=nd/Nd，通过问许多类似上面的问题（姓名、职业等），进行加权，最终可以得到一个无偏的估计。</li>
+</ul>
+<h3 id="对完整网络数据的推断"><a href="#对完整网络数据的推断" class="headerlink" title="对完整网络数据的推断"></a>对完整网络数据的推断</h3><p>清理网络结构数据描述完整结构，网络可视化的重要性。</p>
+<p>网络迭代法</p>
+<p>例子：使用网络规模调查估算死亡人口</p>
+<ul>
+<li>其相对于调查社区死亡率进行推算的优势在于，成本更低。对样本量的要求？</li>
+<li>研究的假设：死亡人口和存活人口网络规模一致；不存在死亡人口报告偏误</li>
+</ul>
 
             </div>
             <hr>
@@ -278,9 +344,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/R/">R</a>
+                      <a class="hover-with-bg" href="/tags/SNA/">SNA</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+                      <a class="hover-with-bg" href="/tags/%E7%A4%BE%E4%BC%9A%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90/">社会网络分析</a>
                     
                   </div>
                 
