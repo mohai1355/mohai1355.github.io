@@ -33,6 +33,35 @@
   
   
   <entry>
+    <title>关于稍后阅读类工具的思考</title>
+    <link href="/2021/11/12/211112-%E5%85%B3%E4%BA%8E%E7%A8%8D%E5%90%8E%E9%98%85%E8%AF%BB%E7%B1%BB%E5%B7%A5%E5%85%B7%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <url>/2021/11/12/211112-%E5%85%B3%E4%BA%8E%E7%A8%8D%E5%90%8E%E9%98%85%E8%AF%BB%E7%B1%BB%E5%B7%A5%E5%85%B7%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    
+    <content type="html"><![CDATA[<p>在最近，我尝试使用了一款稍后阅读类工具——<a href="https://cubox.pro/">Cubox</a>，尽管官方给它的定位是“一款专注于互联网碎片信息的管理工具”，不过在我这里它的主要作用是一个不同平台文章的稍后阅读收藏夹。这应该是我有生以来（？）第一次尝试这类APP去收纳和整理我在互联网的碎片阅读。使用它的过程非常有趣，也引起了我的一些思考。</p><h2 id="01-我的效率-知识管理工具使用状态"><a href="#01-我的效率-知识管理工具使用状态" class="headerlink" title="01.我的效率/知识管理工具使用状态"></a>01.我的效率/知识管理工具使用状态</h2><p>在说Cubox的使用体验之前，我觉得还是有必要说一下自己当前效率/知识管理工具的使用状态。</p><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>我目前主要使用的软件有<a href="https://dida365.com/home?language=zh_cn">滴答清单</a>、<a href="https://obsidian.md/">Obsidian</a>、<a href="https://www.typora.io/">Typora</a>，再加上刚刚开始尝试使用的Cubox。</p><ul><li><strong>滴答清单</strong>主要是做任务和日程管理（不过最近因为各种原因用得比较懈怠）；</li><li><strong>Obsidian</strong>是我目前最主要的知识管理软件，到现在为止用了差不多有一年，里面有我这一年几乎所有的课程笔记、读书笔记、课程作业和其他事务留下的各种文字记录；</li><li><strong>Typora</strong>作为当前使用体验最好的markdown文本编辑器，我一般会使用它来进行文字内容的记录和输出，通过Obsidian进行管理；</li><li><strong>Cubox</strong>在我的知识管理体系中，就是作为互联网文章的收藏夹，我会利用它来管理和阅读文章，并对重要内容进行标注。</li></ul><h3 id="内容输出流程"><a href="#内容输出流程" class="headerlink" title="内容输出流程"></a>内容输出流程</h3><p>现在的输出主要有两个</p><ul><li>作业：用Typora编写内容，利用Typora的导出为word，在进行一些基本格式的调整；</li><li>博客：用Typora编写内容，之后利用hexo部署。</li></ul><h3 id="同步方式"><a href="#同步方式" class="headerlink" title="同步方式"></a>同步方式</h3><p>因为电脑是windows系统，所以目前还在用OneDrive同步和备份。不过这样做存在的一个问题是，因为我日常还会使用iPad Pro和iPhone，但是苹果系统的App对于OneDrive的支持很差，也没有特别合适的markdown编辑器（之前用过一段时间的<a href="https://ulysses.app/">Ulysses</a>，编辑体验很好，但同步很不方便），所以基本上还是在电脑上进行知识管理，其他平台用得很少。</p><h2 id="02-给我带来的反思"><a href="#02-给我带来的反思" class="headerlink" title="02.给我带来的反思"></a>02.给我带来的反思</h2><p>以Cubox作为分析对象 。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol><li>良好的社区：与用户共同开发一款软件——定位，以用户的需求为出发点</li><li>长期的维护，较高的更新频率</li><li>较低的会员价格（相对于海外的同类型软件）</li></ol><h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ol><li>稍后阅读类软件的局限性（or<strong>独特性？</strong>）：作为一款<strong>过渡类</strong>app，是信息收集处理的第一站</li><li>效率工具产品的功能定位：全面 or 单一？追求全能，就可能导致“四不像”</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>所思所想</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生活方式</tag>
+      
+      <tag>效率工具</tag>
+      
+      <tag>互联网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>短期支教的组织过程————以「爱心万里行」为例</title>
     <link href="/2021/08/23/%E7%9F%AD%E6%9C%9F%E6%94%AF%E6%95%99/"/>
     <url>/2021/08/23/%E7%9F%AD%E6%9C%9F%E6%94%AF%E6%95%99/</url>
