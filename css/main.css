@@ -1962,45 +1962,54 @@ note-default {
   }
 }
 /* ==========================================================================
-   漠海的自语地 - 极简阅读风 (Minimalist Editorial Typography)
-   Inspired by Medium, Substack & Modern Chinese Web Typography
+   漠海的自语地 - 极简现代阅读风 (Minimalist Modern Typography)
+   Inspired by Medium, Substack & Modern Chinese Typography
    ========================================================================== */
 
-/* 1. CSS 变量与设计规范 */
+/* 1. CSS 变量与主题基调 */
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "WenQuanYi Micro Hei", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Monaco, "Cascadia Code", "Roboto Mono", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --accent-color: #2563eb;
   --accent-hover: #1d4ed8;
   --accent-light: rgba(37, 99, 235, 0.08);
-  --accent-border: rgba(37, 99, 235, 0.28);
+  --accent-border: rgba(37, 99, 235, 0.25);
   --body-bg-color: #f8fafc;
   --board-bg-color: #ffffff;
+  --card-bg: #ffffff;
   --text-color: #334155;
   --sec-text-color: #64748b;
   --post-heading-color: #0f172a;
   --post-text-color: #334155;
-  --card-border: rgba(226, 232, 240, 0.85);
-  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 1px 1px rgba(15, 23, 42, 0.03);
+  --card-border: rgba(226, 232, 240, 0.9);
+  --card-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  --card-hover-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.08);
+  --tag-bg: rgba(100, 116, 139, 0.08);
+  --tag-color: #475569;
 }
 
+/* 深色模式全面匹配与覆盖 */
 [data-user-color-scheme="dark"],
 :root:not([data-user-color-scheme="light"]) {
-  --body-bg-color: #0b0f17;
-  --board-bg-color: #131923;
-  --text-color: #cbd5e1;
-  --sec-text-color: #94a3b8;
-  --post-heading-color: #f8fafc;
-  --post-text-color: #cbd5e1;
-  --accent-color: #38bdf8;
-  --accent-hover: #7dd3fc;
-  --accent-light: rgba(56, 189, 248, 0.12);
-  --accent-border: rgba(56, 189, 248, 0.35);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.45), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --body-bg-color: #0b0f17 !important;
+  --board-bg-color: #111722 !important;
+  --card-bg: #161e2b !important;
+  --text-color: #cbd5e1 !important;
+  --sec-text-color: #94a3b8 !important;
+  --post-heading-color: #f8fafc !important;
+  --post-text-color: #cbd5e1 !important;
+  --accent-color: #38bdf8 !important;
+  --accent-hover: #7dd3fc !important;
+  --accent-light: rgba(56, 189, 248, 0.12) !important;
+  --accent-border: rgba(56, 189, 248, 0.35) !important;
+  --card-border: rgba(255, 255, 255, 0.08) !important;
+  --card-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+  --card-hover-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.5) !important;
+  --tag-bg: rgba(255, 255, 255, 0.07) !important;
+  --tag-color: #cbd5e1 !important;
 }
 
-/* 2. 全局字体与基础优化 */
+/* 2. 全局字体与平滑渲染 */
 body {
   font-family: var(--font-sans) !important;
   color: var(--text-color) !important;
@@ -2010,25 +2019,25 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* 3. 顶部导航栏 (Navbar) - 现代磨砂半透明质感 */
+/* 3. 顶部导航栏 (Navbar) - 现代磨砂玻璃质感 */
 #navbar {
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  background-color: rgba(15, 23, 42, 0.45) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #navbar.top-nav-collapse {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
   border-bottom: 1px solid var(--card-border) !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
 }
 
 [data-user-color-scheme="dark"] #navbar.top-nav-collapse,
 :root:not([data-user-color-scheme="light"]) #navbar.top-nav-collapse {
-  background-color: rgba(19, 25, 35, 0.9) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+  background-color: rgba(17, 23, 34, 0.92) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .navbar .navbar-brand {
@@ -2045,15 +2054,17 @@ body {
   transition: all 0.2s ease;
 }
 
-/* 4. 减负后的 Hero 横幅 (适度高度，让内容在首屏自然呈现) */
-header {
-  height: 36vh !important;
-  min-height: 240px !important;
+/* 4. 减负瘦身后的 Hero 横幅 (38vh 黄金比例，文章直接露出) */
+header,
+header[style*="height"] {
+  height: 38vh !important;
+  min-height: 250px !important;
   max-height: 320px !important;
 }
 
 @media (max-width: 767px) {
-  header {
+  header,
+  header[style*="height"] {
     height: 28vh !important;
     min-height: 190px !important;
     max-height: 240px !important;
@@ -2074,67 +2085,76 @@ header {
 
 #subtitle {
   font-weight: 600 !important;
-  letter-spacing: -0.01em;
-  font-size: 1.95rem !important;
+  letter-spacing: 0.02em !important;
+  font-size: 2.1rem !important;
 }
 
 @media (max-width: 575px) {
   #subtitle {
-    font-size: 1.45rem !important;
+    font-size: 1.5rem !important;
   }
 }
 
-/* 5. 核心画板 (#board) 现代极简微阴影 */
+/* 5. 核心画板 (#board) 升级 */
 #board {
   margin-top: -3.2rem !important;
   background-color: var(--board-bg-color) !important;
-  border-radius: 14px !important;
-  box-shadow: var(--card-shadow) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
   border: 1px solid var(--card-border) !important;
   padding: 3rem 2.5rem !important;
   transition: background-color 0.25s ease, box-shadow 0.25s ease !important;
 }
 
+[data-user-color-scheme="dark"] #board,
+:root:not([data-user-color-scheme="light"]) #board {
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.45), 0 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
 @media (max-width: 767px) {
   #board {
     margin-top: -1.8rem !important;
-    padding: 1.8rem 1.2rem !important;
+    padding: 1.6rem 1.1rem !important;
     border-radius: 12px !important;
   }
 }
 
-.post-content {
-  max-width: 840px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* 6. 首页文章列表 (Medium / Substack 极简排版) */
+/* 6. 首页文章卡片 (精装现代化卡片，彻底告别沉闷堆叠) */
 .index-card {
-  margin-bottom: 2.4rem !important;
-  padding-bottom: 2.2rem !important;
-  border-bottom: 1px solid var(--card-border) !important;
-  transition: transform 0.2s ease;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px !important;
+  padding: 1.8rem 2rem !important;
+  margin-bottom: 1.6rem !important;
+  box-shadow: var(--card-shadow) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
 }
 
-.index-card:last-child {
-  border-bottom: none !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+.index-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--accent-border) !important;
+  box-shadow: var(--card-hover-shadow) !important;
+}
+
+@media (max-width: 575px) {
+  .index-card {
+    padding: 1.4rem 1.2rem !important;
+  }
 }
 
 .index-header {
-  font-size: 1.42rem !important;
+  font-size: 1.45rem !important;
   font-weight: 600 !important;
   line-height: 1.42 !important;
   margin-bottom: 0.65rem !important;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.015em !important;
 }
 
 .index-header a {
   color: var(--post-heading-color) !important;
   text-decoration: none !important;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease !important;
 }
 
 .index-header a:hover {
@@ -2142,14 +2162,15 @@ header {
 }
 
 .index-excerpt {
-  font-size: 0.98rem !important;
+  font-size: 0.96rem !important;
   line-height: 1.8 !important;
   color: var(--sec-text-color) !important;
-  margin-bottom: 1rem !important;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-top: 0.6rem !important;
+  margin-bottom: 1.1rem !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
 }
 
 .index-excerpt a {
@@ -2157,58 +2178,79 @@ header {
   text-decoration: none !important;
 }
 
+/* 元数据与胶囊标签美化 */
 .index-btm.post-metas {
   display: flex !important;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.8rem;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem 0.75rem !important;
   font-size: 0.84rem !important;
-  color: var(--sec-text-color) !important;
 }
 
 .index-btm.post-metas .post-meta {
   margin-right: 0 !important;
-  display: inline-flex;
-  align-items: center;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .index-btm.post-metas .post-meta i {
-  margin-right: 0.3rem;
-  font-size: 0.88rem;
+  margin-right: 0.32rem !important;
+  font-size: 0.88rem !important;
 }
 
-/* 标签与分类轻量胶囊化 */
+/* 日期胶囊 */
+.index-btm.post-metas .post-meta.mr-3:first-child {
+  background: var(--tag-bg) !important;
+  color: var(--sec-text-color) !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 6px !important;
+}
+
+/* 分类与标签胶囊 */
 .index-btm.post-metas a,
 .post-metas a {
-  display: inline-block;
-  background-color: var(--accent-light);
-  color: var(--text-color) !important;
-  padding: 0.12rem 0.55rem;
-  border-radius: 6px;
-  font-size: 0.78rem;
+  display: inline-block !important;
+  background-color: var(--tag-bg) !important;
+  color: var(--tag-color) !important;
+  padding: 0.18rem 0.62rem !important;
+  border-radius: 6px !important;
+  font-size: 0.8rem !important;
   text-decoration: none !important;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
+  transition: all 0.2s ease !important;
+  border: 1px solid transparent !important;
+}
+
+/* 分类特别强调色 */
+.index-btm.post-metas .post-meta.mr-3:nth-child(2) a {
+  background-color: var(--accent-light) !important;
+  color: var(--accent-color) !important;
+  font-weight: 500 !important;
 }
 
 .index-btm.post-metas a:hover,
 .post-metas a:hover {
-  color: var(--accent-color) !important;
-  border-color: var(--accent-border);
-  transform: translateY(-1px);
+  color: var(--accent-hover) !important;
+  border-color: var(--accent-border) !important;
+  background-color: var(--accent-light) !important;
+  transform: translateY(-1px) !important;
 }
 
 /* 7. 文章正文排版 (The Core Reading Typography) */
+.post-content {
+  max-width: 840px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .markdown-body {
   font-family: var(--font-sans) !important;
-  font-size: 1.08rem !important; /* 约 17.3px 沉浸阅读舒适字号 */
+  font-size: 1.08rem !important; /* 约 17.3px 黄金沉浸阅读字号 */
   line-height: 1.88 !important;   /* 中文长文黄金行高 */
-  letter-spacing: 0.015em;
+  letter-spacing: 0.015em !important;
   color: var(--post-text-color) !important;
   background-color: transparent !important;
 }
 
-/* 标题层次与呼吸感 */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
@@ -2231,7 +2273,7 @@ header {
   font-size: 1.42rem !important;
   margin-top: 2.5rem !important;
   margin-bottom: 1.1rem !important;
-  padding-left: 0.75rem !important;
+  padding-left: 0.8rem !important;
   border-left: 4px solid var(--accent-color) !important;
   border-bottom: none !important;
   border-top: none !important;
@@ -2250,10 +2292,9 @@ header {
   margin-bottom: 0.6rem !important;
 }
 
-/* 段落与列表留白 */
 .markdown-body p {
   margin-bottom: 1.6rem !important;
-  text-align: justify;
+  text-align: justify !important;
 }
 
 .markdown-body ul,
@@ -2267,7 +2308,6 @@ header {
   margin-top: 0.45rem !important;
 }
 
-/* 粗体微调：温润而不突兀 */
 .markdown-body strong,
 .markdown-body b {
   font-weight: 600 !important;
@@ -2299,7 +2339,7 @@ header {
   border-radius: 5px !important;
   background-color: rgba(175, 184, 193, 0.18) !important;
   color: #e11d48 !important;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 [data-user-color-scheme="dark"] .markdown-body :not(pre) > code,
@@ -2314,17 +2354,17 @@ header {
   border: 1px solid var(--card-border) !important;
   font-family: var(--font-mono) !important;
   margin: 1.6rem 0 !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
 }
 
 /* 超链接体验 */
 .markdown-body a {
   color: var(--accent-color) !important;
   text-decoration: underline !important;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 1px !important;
   text-decoration-color: var(--accent-border) !important;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease !important;
 }
 
 .markdown-body a:hover {
