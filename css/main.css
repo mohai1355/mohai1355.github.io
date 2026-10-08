@@ -1962,11 +1962,11 @@ note-default {
   }
 }
 /* ==========================================================================
-   漠海的自语地 - 极简现代阅读风 (Minimalist Modern Typography)
-   Inspired by Medium, Substack & Modern Chinese Typography
+   漠海的自语地 - 极简纯粹阅读风 (Medium / Substack Style Typography)
+   Clean, Distraction-Free, Elegant Chinese Typography
    ========================================================================== */
 
-/* 1. CSS 变量与主题基调 */
+/* 1. CSS 变量与设计规范 */
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "WenQuanYi Micro Hei", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -1992,7 +1992,7 @@ note-default {
 [data-user-color-scheme="dark"],
 :root:not([data-user-color-scheme="light"]) {
   --body-bg-color: #0b0f17 !important;
-  --board-bg-color: #111722 !important;
+  --board-bg-color: #121824 !important;
   --card-bg: #161e2b !important;
   --text-color: #cbd5e1 !important;
   --sec-text-color: #94a3b8 !important;
@@ -2054,7 +2054,7 @@ body {
   transition: all 0.2s ease;
 }
 
-/* 4. 减负瘦身后的 Hero 横幅 (38vh 黄金比例，文章直接露出) */
+/* 4. Hero 横幅 (38vh 黄金比例，文章直接露出) */
 header,
 header[style*="height"] {
   height: 38vh !important;
@@ -2102,7 +2102,7 @@ header[style*="height"] {
   border-radius: 16px !important;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
   border: 1px solid var(--card-border) !important;
-  padding: 3rem 2.5rem !important;
+  padding: 2.8rem 2.4rem !important;
   transition: background-color 0.25s ease, box-shadow 0.25s ease !important;
 }
 
@@ -2237,61 +2237,84 @@ header[style*="height"] {
 
 /* 7. 文章正文排版 (The Core Reading Typography) */
 .post-content {
-  max-width: 840px !important;
+  max-width: 820px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 .markdown-body {
   font-family: var(--font-sans) !important;
-  font-size: 1.08rem !important; /* 约 17.3px 黄金沉浸阅读字号 */
+  font-size: 1.08rem !important; /* 约 17.3px 沉浸阅读黄金字号 */
   line-height: 1.88 !important;   /* 中文长文黄金行高 */
   letter-spacing: 0.015em !important;
   color: var(--post-text-color) !important;
   background-color: transparent !important;
 }
 
+/* 核心修复：清除所有标题的生硬边框与伪元素干扰（消除过长竖线和横线冲突） */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
-.markdown-body h4 {
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
   color: var(--post-heading-color) !important;
   font-weight: 600 !important;
   line-height: 1.4 !important;
-}
-
-.markdown-body h1 {
-  font-size: 1.85rem !important;
-  margin-top: 2.6rem !important;
-  margin-bottom: 1.3rem !important;
-  padding-bottom: 0.6rem !important;
-  border-bottom: 1px solid var(--card-border) !important;
-}
-
-/* H2 章节左侧主题色极简视觉指示条 */
-.markdown-body h2 {
-  font-size: 1.42rem !important;
-  margin-top: 2.5rem !important;
-  margin-bottom: 1.1rem !important;
-  padding-left: 0.8rem !important;
-  border-left: 4px solid var(--accent-color) !important;
-  border-bottom: none !important;
-  border-top: none !important;
+  border: none !important;
+  border-left: none !important;
   border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* 彻底重置 Fluid 主题为锚点设置的 ::before 隐藏占位符，防止产生任何幽灵边框 */
+.post-content h1::before,
+.post-content h2::before,
+.post-content h3::before,
+.post-content h4::before,
+.post-content h5::before,
+.post-content h6::before {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* 标题层次纯粹化 (Medium / Substack 式依靠字号与留白建立节奏) */
+.markdown-body h1 {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  margin-top: 1.6rem !important;
+  margin-bottom: 1.2rem !important;
+  letter-spacing: -0.015em !important;
+}
+
+.markdown-body h2 {
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-top: 2.3rem !important;
+  margin-bottom: 0.9rem !important;
+  letter-spacing: -0.01em !important;
 }
 
 .markdown-body h3 {
-  font-size: 1.2rem !important;
-  margin-top: 2rem !important;
-  margin-bottom: 0.85rem !important;
+  font-size: 1.18rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.8rem !important;
+  margin-bottom: 0.7rem !important;
 }
 
 .markdown-body h4 {
-  font-size: 1.08rem !important;
-  margin-top: 1.6rem !important;
-  margin-bottom: 0.6rem !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.4rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
+/* 正文段落与列表 */
 .markdown-body p {
   margin-bottom: 1.6rem !important;
   text-align: justify !important;
@@ -2312,6 +2335,31 @@ header[style*="height"] {
 .markdown-body b {
   font-weight: 600 !important;
   color: var(--post-heading-color) !important;
+}
+
+/* 核心修复：更新提示条 (Note Box) 告别刺眼白灰底色，融入主题卡片感 */
+.note {
+  border-radius: 8px !important;
+  padding: 0.75rem 1.1rem !important;
+  font-size: 0.88rem !important;
+  margin: 1.2rem 0 1.8rem 0 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+[data-user-color-scheme="dark"] .note-info,
+:root:not([data-user-color-scheme="light"]) .note-info {
+  background-color: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-left: 3.5px solid #38bdf8 !important;
+  color: #cbd5e1 !important;
+}
+
+.note-info {
+  background-color: rgba(37, 99, 235, 0.05) !important;
+  border: 1px solid rgba(37, 99, 235, 0.16) !important;
+  border-left: 3.5px solid #2563eb !important;
+  color: #334155 !important;
 }
 
 /* 引用块 (Blockquote) - Substack 优雅风格 */
@@ -2339,7 +2387,7 @@ header[style*="height"] {
   border-radius: 5px !important;
   background-color: rgba(175, 184, 193, 0.18) !important;
   color: #e11d48 !important;
-  font-weight: 500 !important;
+  font-weight: 500;
 }
 
 [data-user-color-scheme="dark"] .markdown-body :not(pre) > code,
@@ -2415,18 +2463,9 @@ header[style*="height"] {
 #toc .toc-link.active {
   color: var(--accent-color) !important;
   font-weight: 600 !important;
-  transform: translateX(4px);
 }
 
-/* 9. 提示卡片 (Note) 现代平滑圆角 */
-.note {
-  border-radius: 8px !important;
-  padding: 0.9rem 1.2rem !important;
-  font-size: 0.92rem !important;
-  margin: 1.5rem 0 !important;
-}
-
-/* 10. 页脚 (Footer) 极简化 */
+/* 9. 页脚 (Footer) 极简化 */
 footer {
   padding: 3rem 0 2rem 0 !important;
   font-size: 0.85rem !important;
